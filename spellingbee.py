@@ -34,6 +34,7 @@ def getValidWords(letters, middle):
             valid.append(w)
     return valid
 
+#this really ugly one-liner just loads the data from the NYtimes website
 data = json.loads(BeautifulSoup(getHTML("https://www.nytimes.com/puzzles/spelling-bee"), features='lxml').find('script',{'type':'text/javascript'}).contents[0].split("window.gameData = ")[1])['today']
 
 letters = data['validLetters']
